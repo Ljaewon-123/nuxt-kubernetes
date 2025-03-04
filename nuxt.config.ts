@@ -8,6 +8,22 @@ export default defineNuxtConfig({
     dburl: process.env.DATABASE_URL,
     dbName: process.env.DBNAME,
   },
+  nitro: {
+    // Production
+    storage: {
+      redis: {
+        driver: "redis",
+        url: "redis://redis:6379",
+      },
+    },
+    // Development
+    devStorage: {
+      redis: {
+        driver: 'fs',
+        base: './data/db'
+      }
+    }
+  },
   app:{
     head: {
       title: "Nuxt Kubernetes",

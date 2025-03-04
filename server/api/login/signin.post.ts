@@ -1,9 +1,10 @@
+import sessionTtl from "~~/server/constant/session-ttl";
 import UsersModel from "~~/server/models/Users";
+import PageAuth from "~~/server/utils/PageAuth";
 
 export default defineEventHandler( async(event) => {
 
   const body = await readBody(event)
-  const config = useRuntimeConfig()
 
   const user = await UsersModel.findOne({
     email: body.email,
@@ -26,19 +27,20 @@ export default defineEventHandler( async(event) => {
     })
   }
 
-  // const session = await PageAuth.createSession(event)
-  // const userInfo = {
-  //   id: session.id,
-  //   data:{
-  //     email: user.email,
-  //     userName: user.userName
-  //   }
-  // }
-  // await session.update({
-  //   userName: user.userName
-  // });
-  // const redis = useRedis()
-  // await redis.setItem(session.id ?? 'null', userInfo, sessionTtl)
+  const session = await PageAuth.createSession(event)
+  const userInfo = {
+    id: session.id,
+    data:{
+      email: user.email,
+      userName: user.userName
+    }
+  }
+  await session.update({
+    userName: user.userName
+  });
+
+  const redis = useStorage('redis')
+  await redis.setItem(session.id ?? 'null', userInfo, sessionTtl)
 
   return true
 
