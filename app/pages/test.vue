@@ -56,6 +56,7 @@ async function onSubmit(){
   }
 }
 
+// 내부에 있어도 똑같다. 
 const { error, execute } = await useAsyncData('/api/temp/login',() => $fetch('/api/temp/login', {
   method: 'POST',
   body: body.value,

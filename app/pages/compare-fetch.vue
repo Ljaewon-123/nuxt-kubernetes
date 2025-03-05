@@ -1,15 +1,26 @@
 <template>
-  <div>
-    <button @click="changeQuery(1)">Inc query</button>
-    <button @click="changeQuery(-1)">Dec query</button>
-    <button @click="changeRef(1)">Inc other param</button>
-    <button @click="changeRef(-1)">Dec other param</button>
+  <div >
+    <pre>{{ data }}</pre>
+    <v-btn @click="changeQuery(1)">Inc query</v-btn>
+    <v-btn @click="changeQuery(-1)">Dec query</v-btn>
+    <v-btn @click="changeRef(1)">Inc other param</v-btn>
+    <v-btn @click="changeRef(-1)">Dec other param</v-btn>
   </div>
 </template>
 
 <script setup lang="ts">
 const { page, changeQuery } = useQuery()
 const { otherParam, changeRef } = useOtherParam()
+
+const method = computed(() => otherParam.value > 2 ? 'POST' : 'GET')
+
+const { data } = await useFetch('/api/temp/fetch-compare', {
+  query: {
+    page,
+    otherParam
+  },
+  method
+})
 
 function useOtherParam() {
   const otherParam = ref(1)
