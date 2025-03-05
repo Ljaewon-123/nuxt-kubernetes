@@ -1,6 +1,6 @@
 <template>
   <div >
-    <pre>{{ data }}</pre>
+    <pre>{{ asyncData }}</pre>
     <v-btn @click="changeQuery(1)">Inc query</v-btn>
     <v-btn @click="changeQuery(-1)">Dec query</v-btn>
     <v-btn @click="changeRef(1)">Inc other param</v-btn>
@@ -20,6 +20,16 @@ const { data } = await useFetch('/api/temp/fetch-compare', {
     otherParam
   },
   method
+})
+
+const { data: asyncData } = await useAsyncData('fetch-compare', () => $fetch('/api/temp/fetch-compare', {
+  query: {
+    page: page.value,
+    otherParam: otherParam.value
+  },
+  method: method.value
+}), {
+  watch: [page, otherParam, method]
 })
 
 function useOtherParam() {
