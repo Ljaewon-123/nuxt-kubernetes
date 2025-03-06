@@ -1,7 +1,9 @@
 import { z } from 'zod'
 import { publicProcedure, router } from '~~/server/trpc/trpc'
+import { todoRouter } from './example-todos'
 
 export const appRouter = router({
+  exampleTdos: todoRouter,
   hello: publicProcedure
     // This is the input schema of your procedure
     .input(
