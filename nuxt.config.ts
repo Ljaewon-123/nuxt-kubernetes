@@ -8,6 +8,9 @@ export default defineNuxtConfig({
     dburl: process.env.DATABASE_URL,
     dbName: process.env.DBNAME,
   },
+  build: {
+    transpile: ['trpc-nuxt']
+  },
   nitro: {
     // Production
     storage: {
