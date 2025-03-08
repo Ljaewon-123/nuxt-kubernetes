@@ -7,9 +7,11 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "test": "vitest"
   },
   "dependencies": {
+    "@pinia/testing": "^1.0.0",
     "@trpc/client": "^10.45.2",
     "@trpc/server": "^10.45.2",
     "@types/crypto-js": "^4.2.2",
@@ -22,7 +24,12 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@nuxt/test-utils": "^3.17.1",
     "@pinia/nuxt": "^0.10.1",
+    "@vue/test-utils": "^2.4.6",
+    "happy-dom": "^17.4.0",
+    "playwright-core": "^1.51.0",
+    "vitest": "^3.0.8",
     "vuetify-nuxt-module": "^0.18.3"
   }
 }

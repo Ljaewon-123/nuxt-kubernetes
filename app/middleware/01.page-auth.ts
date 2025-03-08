@@ -7,7 +7,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
   
   const { dialog } = storeToRefs(useGlobalDialog())
 
-  const { error } = await useAsyncData<any, any>(() => $fetch("/api/auth/page-auth"), {
+  const { error } = await useAsyncData<any, any>(() => $fetch("/api/auth/page-auth", {method:"GET"}), {
     server: false
   })
 
