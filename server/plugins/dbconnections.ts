@@ -4,6 +4,7 @@ import mongoose from 'mongoose'
 export default async() => {
 
   const config = useRuntimeConfig()
+  console.log(config.dbName, '!!!!!!')
 
   try{
     const dbOptions = {
@@ -12,7 +13,7 @@ export default async() => {
       // useUnifiedTopology: true,
     }
     await mongoose.connect(config.dburl, dbOptions)
-    console.log('connected successfully...')
+    console.log('connected successfully...!!!!')
   }
   catch (e){
     console.error(e)
