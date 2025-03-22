@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: web
+        image: nogaree/jaewon-login:latest  
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          value: "max"  # 환경에 따라 값 수정
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          value: "secret"
+        - name: DATABASE_URL
+          value: "mongodb://max:secret@mongodb:27017"
+        - name: DBNAME
+          value: "web"
