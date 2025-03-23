@@ -54,10 +54,8 @@ jobs:
       - name: Build and Tag Docker Image
         run: |
           docker build -t nogaree/jaewon-login:${{ env.VERSION }} .
-          docker tag nogaree/jaewon-login:${{ env.VERSION }} nogaree/jaewon-login:latest
 
       # ✅ 8. Docker Hub에 푸시
       - name: Push Docker Image
         run: |
           docker push nogaree/jaewon-login:${{ env.VERSION }}
-          docker push nogaree/jaewon-login:latest
