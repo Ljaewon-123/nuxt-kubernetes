@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: web-service
 spec:
-  type: LoadBalancer
   selector:
     app: web
+  type: LoadBalancer
   ports:
-  - protocol: TCP
-    port: 3003
-    targetPort: 3000
+    - protocol: TCP
+      port: 3003
+      targetPort: 3000

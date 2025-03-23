@@ -18,3 +18,9 @@ kubectl apply -f web-service.yaml
 kubectl apply -f nginx-configmap.yaml
 kubectl apply -f nginx-deployment.yaml
 kubectl apply -f nginx-service.yaml
+
+
+docker
+
+docker build -t nogaree/jaewon-login:latest . 
+docker push nogaree/jaewon-login:latest 

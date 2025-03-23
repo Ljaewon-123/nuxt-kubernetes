@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     storage: {
       redis: {
         driver: "redis",
-        url: "redis://redis:6379",
+        url: "redis://redis-service.default:6379",
       },
     },
     // Development
