@@ -13,17 +13,30 @@ spec:
         app: mongodb
     spec:
       containers:
-      - name: mongodb
-        image: mongo:latest
-        env:
-        - name: MONGO_INITDB_ROOT_USERNAME
-          value: "max"
-        - name: MONGO_INITDB_ROOT_PASSWORD
-          value: "secret" 
-        volumeMounts:
-        - name: mongodb-data
-          mountPath: /data/db
+        - name: mongodb
+          image: mongo:latest
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-secret
+                  key: MONGO_INITDB_ROOT_USERNAME
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-secret
+                  key: MONGO_INITDB_ROOT_PASSWORD
+
+            # ######
+            # - name: MONGO_INITDB_ROOT_USERNAME
+            #   value: "max"
+            # - name: MONGO_INITDB_ROOT_PASSWORD
+            #   value: "secret" 
+            # ----------------------
+          volumeMounts:
+            - name: mongodb-data
+              mountPath: /data/db
       volumes:
-      - name: mongodb-data
-        persistentVolumeClaim:
-          claimName: mongodb-pvc
+        - name: mongodb-data
+          persistentVolumeClaim:
+            claimName: mongodb-pvc
