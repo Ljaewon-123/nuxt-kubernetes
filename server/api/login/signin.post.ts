@@ -42,6 +42,8 @@ export default defineEventHandler( async(event) => {
   const redis = useStorage('redis')
   await redis.setItem(session.id ?? 'null', userInfo, sessionTtl)
 
+  console.log('Login Success')
+
   return true
 
 })
