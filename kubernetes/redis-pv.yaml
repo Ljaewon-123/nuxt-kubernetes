@@ -10,5 +10,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /data/redis  # minikube 내 호스트 경로. 필요시 적절하게 변경
+    path: /data/redis 
     type: DirectoryOrCreate
