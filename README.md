@@ -1,14 +1,14 @@
 # nuxt-kubernetes
 Nuxt Kubernetes
 
-```
+```sh
 kubectl apply -f redis-pv.yaml
 kubectl apply -f redis-pvc.yaml
 kubectl apply -f redis-deployment.yaml
 kubectl apply -f redis-service.yaml
 ```
 
-```
+```sh
 kubectl apply -f mongo-secret.yaml
 kubectl apply -f mongodb-pv.yaml
 kubectl apply -f mongodb-pvc.yaml
@@ -16,7 +16,7 @@ kubectl apply -f mongodb-deployment.yaml
 kubectl apply -f mongodb-service.yaml
 ```
 
-```
+```sh
 kubectl apply -f web-deployment.yaml
 kubectl apply -f web-service.yaml
 ```
@@ -31,17 +31,21 @@ kubectl apply -f nginx-service.yaml
 
 
 docker
-
+```docker
 docker build -t nogaree/jaewon-login:latest . 
 docker push nogaree/jaewon-login:latest 
-
+```
 
 
 cluster config
+```sh
 aws eks --region ap-northeast-2 update-kubeconfig --name <cluster-name>
+```
 
 etc
+```sh
 kubectl exec -it <NAME> -- sh
+```
 
 log pod 
 
