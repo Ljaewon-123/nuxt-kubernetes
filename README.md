@@ -1,6 +1,12 @@
 # nuxt-kubernetes
 Nuxt Kubernetes
 
+Docker
+```docker
+docker build -t <DockerHubID>/jaewon-login:latest . 
+docker push <DockerHubID>/jaewon-login:latest 
+```
+
 ```sh
 kubectl apply -f redis-pv.yaml
 kubectl apply -f redis-pvc.yaml
@@ -27,13 +33,6 @@ kubectl apply -f web-service.yaml
 kubectl apply -f nginx-configmap.yaml
 kubectl apply -f nginx-deployment.yaml
 kubectl apply -f nginx-service.yaml
-```
-
-
-docker
-```docker
-docker build -t nogaree/jaewon-login:latest . 
-docker push nogaree/jaewon-login:latest 
 ```
 
 
