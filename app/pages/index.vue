@@ -2,6 +2,8 @@
   <div>
     <h1>Hello</h1>
 
+    <h2>Nuxt Level</h2>
+
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
       Impedit voluptas veritatis, deserunt, iure cumque error, 
       veniam commodi nesciunt optio ad vero obcaecati quibusdam ipsam blanditiis 

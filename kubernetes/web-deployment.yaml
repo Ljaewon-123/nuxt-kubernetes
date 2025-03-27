@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: nogaree/jaewon-login:2.5
+        image: nogaree/jaewon-login:2.6
         # env: nuxt는 이거 절대 안먹음... 
         # - name: MONGO_INITDB_ROOT_USERNAME
         #   value: "max"  # 환경에 따라 값 수정

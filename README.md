@@ -67,3 +67,10 @@ kubectl logs -l app=web --tail=100
 kubectl logs <ID|NAME>
 ```
 
+
+
+### 추가적인 멀티 클러스터 문서 
+```
+https://aws.amazon.com/ko/blogs/tech/build-highly-available-application-with-amazon-eks-multi-cluster-loadbalancing/
+```
+
